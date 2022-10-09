@@ -50,4 +50,22 @@ export const OPENAPI_PROPERTIES = {
       description: 'description of the podcast in html',
     },
     publisher: {
-      typ
+      type: 'string',
+      description: 'publisher of the podcast',
+    },
+    image: {
+      type: 'string',
+      description: 'image url of the podcast',
+    },
+    listen_score: {
+      type: 'integer',
+      description: 'Listen Score of the podcast, ' +
+        'which indicates the estimated popularity of the podcast (similar to nielsen ratings)',
+    },
+    listen_score_global_rank: {
+      type: 'string',
+      description: 'the global rank of the podcast according to Listen Score',
+    },
+    listennotes_url: {
+      type: 'string',
+      description: 'the canonical url
