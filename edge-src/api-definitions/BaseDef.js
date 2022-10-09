@@ -68,4 +68,18 @@ export const OPENAPI_PROPERTIES = {
     },
     listennotes_url: {
       type: 'string',
-      description: 'the canonical url
+      description: 'the canonical url of the podcast on Listen Notes, ' +
+        'which can be used to manually share this podcast',
+    },
+    latest_episode_id: {
+      type: 'string',
+      description: 'the id of the latest episode of the podcast, ' +
+        'which can be used to fetch detailed metadata of the episode using the `getEpisode` endpoint',
+    },
+    latest_pub_date_ms: {
+      type: 'integer',
+      description: 'published date of the latest episode of this podcast in milliseconds of the Unix epoch',
+    },
+    update_frequency_hours: {
+      type: "integer",
+      description: "How frequently does this podcast release a ne
