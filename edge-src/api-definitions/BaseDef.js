@@ -82,4 +82,26 @@ export const OPENAPI_PROPERTIES = {
     },
     update_frequency_hours: {
       type: "integer",
-      description: "How frequently does this podcast release a ne
+      description: "How frequently does this podcast release a new episode? In hours. " +
+        "For example, if the value is 166, then it's every 166 hours (or weekly).",
+    },
+    audio_length_sec: {
+      type: "integer",
+      description: "Average audio length of all episodes of this podcast. In seconds.",
+    },
+    total_episodes: {
+      type: "integer",
+      description: "Total number of episodes in this podcast.",
+    },
+    earliest_pub_date_ms: {
+      type: "integer",
+      description: "The published date of the oldest episode of this podcast. In milliseconds",
+    },
+  },
+}
+
+export const OPENAPI_PARAMETERS = {
+  q: {
+    "name": "q",
+    "in": "query",
+    "description": "A keyword to s
