@@ -127,4 +127,25 @@ export const OPENAPI_PARAMETERS = {
   },
   len_min: {
     "name": "len_min",
- 
+    "in": "query",
+    "description": "Minimum audio length for episode in minutes.",
+    "required": false,
+    "schema": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  len_max: {
+    "name": "len_max",
+    "in": "query",
+    "description": "Maximum audio length for episode in minutes.",
+    "required": false,
+    "schema": {
+      "type": "integer",
+    }
+  },
+  genre_ids: {
+    "name": "genre_ids",
+    "in": "query",
+    "description": "A comma-delimited string of a list of genre ids. If not specified, then all genres are included." +
+      "Find the genre id and the name of all genres fr
