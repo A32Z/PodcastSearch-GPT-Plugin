@@ -148,4 +148,29 @@ export const OPENAPI_PARAMETERS = {
     "name": "genre_ids",
     "in": "query",
     "description": "A comma-delimited string of a list of genre ids. If not specified, then all genres are included." +
-      "Find the genre id and the name of all genres fr
+      "Find the genre id and the name of all genres from the `getGenres` endpoint",
+    "required": false,
+    "schema": {
+      "type": "string",
+    },
+  },
+  published_before: {
+    "name": "published_before",
+    "in": "query",
+    "description": "Only show results published before this timestamp (in milliseconds).",
+    "required": false,
+    "schema": {
+      "type": "integer",
+    }
+  },
+  published_after: {
+    "name": "published_after",
+    "in": "query",
+    "description": "Only show results published after this timestamp (in milliseconds).",
+    "required": false,
+    "schema": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  only_in: 
