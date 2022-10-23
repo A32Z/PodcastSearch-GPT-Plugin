@@ -213,4 +213,26 @@ export const OPENAPI_PARAMETERS = {
       "default": 10
     },
   },
- 
+  episode_count_min: {
+    'name': 'episode_count_min',
+    "in": "query",
+    "description": "Minimum number of episodes.",
+    "required": false,
+    "schema": {
+      "type": "integer"
+    }
+  },
+  episode_count_max: {
+    'name': 'episode_count_max',
+    "in": "query",
+    "description": "Maximum number of episodes.",
+    "required": false,
+    "schema": {
+      "type": "integer"
+    }
+  },
+  update_freq_min: {
+    "name": "update_freq_min",
+    "in": "query",
+    "description": "Minimum update frequency in hours." +
+      " For example, if you want to find \"weekly\" podcasts, then you can set **
