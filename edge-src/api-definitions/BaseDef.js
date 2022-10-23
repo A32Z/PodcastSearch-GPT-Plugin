@@ -173,4 +173,21 @@ export const OPENAPI_PARAMETERS = {
       "default": 0
     }
   },
-  only_in: 
+  only_in: {
+    "name": "only_in",
+    "in": "query",
+    "description": "A comma-delimited string to search only in specific fields. Allowed values are title, description, author, and audio. If not specified, then search every fields.",
+    "required": false,
+    "schema": {
+      "type": "string",
+      "default": "title,description,author,audio"
+    }
+  },
+  language: {
+    "name": "language",
+    "in": "query",
+    "description": "Limit search results to a specific language. If not specified, it'll be any language." +
+      " Get a list of supported languages from the `getLanguages` endpoint",
+    "required": false,
+    "schema": {
+      "type": "string",
