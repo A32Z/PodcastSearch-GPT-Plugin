@@ -256,4 +256,24 @@ export const OPENAPI_PARAMETERS = {
   genre_id: {
     "name": "genre_id",
     "in": "query",
- 
+    "description": "Narrow down results for a specific podcast genre. Get the id from the `getGenres` endpoint.",
+    "required": false,
+    "schema": {
+      "type": "string",
+      }
+  },
+  best_podcasts_region: {
+    "name": "region",
+    "in": "query",
+    "description": "Filter best podcasts by country/region. " +
+      "Get the supported country codes (e.g., us, jp, gb...) from the `getRegions` endpoint.",
+    "required": false,
+    "schema": {
+      "type": "string",
+      "default": "us"
+    }
+  },
+  best_podcasts_publisher_region: {
+    "name": "publisher_region",
+    "in": "query",
+    "description": "
