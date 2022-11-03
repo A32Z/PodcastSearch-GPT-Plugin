@@ -235,4 +235,25 @@ export const OPENAPI_PARAMETERS = {
     "name": "update_freq_min",
     "in": "query",
     "description": "Minimum update frequency in hours." +
-      " For example, if you want to find \"weekly\" podcasts, then you can set **
+      " For example, if you want to find \"weekly\" podcasts, then you can set **update_freq_min**=144 hours (or 6 days)" +
+      " and **update_freq_max**=192 hours (or 8 days).",
+    "required": false,
+    "schema": {
+      "type": "integer"
+    },
+  },
+  update_freq_max: {
+    "name": "update_freq_max",
+    "in": "query",
+    "description": "Minimum update frequency in hours." +
+      " For example, if you want to find \"weekly\" podcasts, then you can set **update_freq_min**=144 hours (or 6 days)" +
+      " and **update_freq_max**=192 hours (or 8 days).",
+    "required": false,
+    "schema": {
+      "type": "integer"
+    },
+  },
+  genre_id: {
+    "name": "genre_id",
+    "in": "query",
+ 
