@@ -276,4 +276,26 @@ export const OPENAPI_PARAMETERS = {
   best_podcasts_publisher_region: {
     "name": "publisher_region",
     "in": "query",
-    "description": "
+    "description": "Filter best podcasts by the publisher's country/region. " +
+      "Get the supported country codes (e.g., us, jp, gb...) from the `getRegions` endpoint.",
+    "required": false,
+    "schema": {
+      "type": "string",
+    }
+  },
+
+  episode_id: {
+    "name": "id",
+    "in": "path",
+    "description": "id for a specific episode, which can be obtained id from the response of other endpoints.",
+    "required": true,
+    "schema": {
+      "type": "string",
+      "example": "6b6d65930c5a4f71b254465871fed370"
+    },
+  },
+
+  podcast_id: {
+    "name": "id",
+    "in": "path",
+    "description": "id for a specific podcast, which can be obtained id from t
