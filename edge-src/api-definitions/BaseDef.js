@@ -298,4 +298,20 @@ export const OPENAPI_PARAMETERS = {
   podcast_id: {
     "name": "id",
     "in": "path",
-    "description": "id for a specific podcast, which can be obtained id from t
+    "description": "id for a specific podcast, which can be obtained id from the response of other endpoints.",
+    "required": true,
+    "schema": {
+      "type": "string",
+      "example": "6b6d65930c5a4f71b254465871fed370"
+    },
+  },
+}
+
+const EPISODE_COMPACT = {
+  id: {...OPENAPI_PROPERTIES.episodeSpec.id},
+  title: {...OPENAPI_PROPERTIES.episodeSpec.title},
+  description: {...OPENAPI_PROPERTIES.episodeSpec.description},
+  image: {...OPENAPI_PROPERTIES.episodeSpec.image},
+  audio: {...OPENAPI_PROPERTIES.episodeSpec.audio},
+  audio_length_sec: {...OPENAPI_PROPERTIES.episodeSpec.audio_length_sec},
+  pub_date_ms: {...OPENAPI_PROPER
