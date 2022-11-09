@@ -314,4 +314,16 @@ const EPISODE_COMPACT = {
   image: {...OPENAPI_PROPERTIES.episodeSpec.image},
   audio: {...OPENAPI_PROPERTIES.episodeSpec.audio},
   audio_length_sec: {...OPENAPI_PROPERTIES.episodeSpec.audio_length_sec},
-  pub_date_ms: {...OPENAPI_PROPER
+  pub_date_ms: {...OPENAPI_PROPERTIES.episodeSpec.pub_date_ms},
+  listennotes_url: {...OPENAPI_PROPERTIES.episodeSpec.listennotes_url},
+}
+
+const PODCAST_COMPACT = {
+  id: {...OPENAPI_PROPERTIES.podcastSpec.id},
+  title: {...OPENAPI_PROPERTIES.podcastSpec.title},
+  description: {...OPENAPI_PROPERTIES.podcastSpec.description},
+  listennotes_url: {...OPENAPI_PROPERTIES.podcastSpec.listennotes_url},
+  publisher: {...OPENAPI_PROPERTIES.podcastSpec.publisher},
+  image: {...OPENAPI_PROPERTIES.podcastSpec.image},
+  latest_episode_id: {...OPENAPI_PROPERTIES.podcastSpec.latest_episode_id},
+  latest_pub_date_ms: {...OPENAPI_PROPERTIES.podcastSpec.latest_pub_
