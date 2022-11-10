@@ -339,4 +339,15 @@ export const OPENAPI_RESPONSE_TMPL = {
   EPISODE_SIMPLE: {
     type: 'object',
     properties: {
-      ...EPISODE_COMPAC
+      ...EPISODE_COMPACT,
+      podcast: {
+        type: 'object',
+        description: 'the podcast that this episode belongs to',
+        properties: {
+          id: {...OPENAPI_PROPERTIES.podcastSpec.id},
+          title: {...OPENAPI_PROPERTIES.podcastSpec.title},
+          publisher: {...OPENAPI_PROPERTIES.podcastSpec.publisher},
+          image: {...OPENAPI_PROPERTIES.podcastSpec.image},
+          listen_score: {...OPENAPI_PROPERTIES.podcastSpec.listen_score},
+          listen_score_global_rank: {...OPENAPI_PROPERTIES.podcastSpec.listen_score_global_rank},
+          listennotes_url: {...OPENAPI_PROPERTIES.podcastSpec.listenn
