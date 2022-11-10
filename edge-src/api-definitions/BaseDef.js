@@ -326,4 +326,17 @@ const PODCAST_COMPACT = {
   publisher: {...OPENAPI_PROPERTIES.podcastSpec.publisher},
   image: {...OPENAPI_PROPERTIES.podcastSpec.image},
   latest_episode_id: {...OPENAPI_PROPERTIES.podcastSpec.latest_episode_id},
-  latest_pub_date_ms: {...OPENAPI_PROPERTIES.podcastSpec.latest_pub_
+  latest_pub_date_ms: {...OPENAPI_PROPERTIES.podcastSpec.latest_pub_date_ms},
+  earliest_pub_date_ms: {...OPENAPI_PROPERTIES.podcastSpec.earliest_pub_date_ms},
+  total_episodes: {...OPENAPI_PROPERTIES.podcastSpec.total_episodes},
+  audio_length_sec: {...OPENAPI_PROPERTIES.podcastSpec.audio_length_sec},
+  update_frequency_hours: {...OPENAPI_PROPERTIES.podcastSpec.update_frequency_hours},
+  listen_score: {...OPENAPI_PROPERTIES.podcastSpec.listen_score},
+  listen_score_global_rank: {...OPENAPI_PROPERTIES.podcastSpec.listen_score_global_rank},
+}
+
+export const OPENAPI_RESPONSE_TMPL = {
+  EPISODE_SIMPLE: {
+    type: 'object',
+    properties: {
+      ...EPISODE_COMPAC
