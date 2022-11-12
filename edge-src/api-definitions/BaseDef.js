@@ -379,4 +379,44 @@ export const OPENAPI_RESPONSE_TMPL = {
   GENRE: {
     "id": {
       "type": "integer",
-      "description": "The id of this genre, which can be used in the `genre_ids` parameter in other endpoints."
+      "description": "The id of this genre, which can be used in the `genre_ids` parameter in other endpoints.",
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable genre name.",
+    },
+    "parent_id": {
+      "type": "integer",
+      "description": "Parent genre's id.",
+    },
+  },
+}
+
+export default class BaseDef {
+  constructor() {
+  }
+
+  //
+  // Implement these functions
+  //
+  transformResultFunc(result) {
+    return {}
+  }
+
+  // Functions from podcast-api-js:
+  // https://github.com/ListenNotes/podcast-api-js#api-reference
+  apiFunctionName() {
+    return ''
+  }
+
+  openApiPathSpec() {
+    return {}
+  }
+
+  // Pass extra params to Listen API's endpoint
+  extraParams() {
+    return {}
+  }
+
+  //
+  // In
