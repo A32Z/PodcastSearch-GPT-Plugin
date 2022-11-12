@@ -350,4 +350,33 @@ export const OPENAPI_RESPONSE_TMPL = {
           image: {...OPENAPI_PROPERTIES.podcastSpec.image},
           listen_score: {...OPENAPI_PROPERTIES.podcastSpec.listen_score},
           listen_score_global_rank: {...OPENAPI_PROPERTIES.podcastSpec.listen_score_global_rank},
-          listennotes_url: {...OPENAPI_PROPERTIES.podcastSpec.listenn
+          listennotes_url: {...OPENAPI_PROPERTIES.podcastSpec.listennotes_url},
+        },
+      },
+    },
+  },
+
+  PODCAST_SIMPLE: {
+    type: 'object',
+    properties: PODCAST_COMPACT,
+  },
+
+  PODCAST_FULL: {
+    type: 'object',
+    properties: {
+      ...PODCAST_COMPACT,
+      episodes: {
+        type: 'array',
+        description: 'most recent episodes of this podcast',
+        items: {
+          type: 'object',
+          properties: EPISODE_COMPACT,
+        },
+      },
+    },
+  },
+
+  GENRE: {
+    "id": {
+      "type": "integer",
+      "description": "The id of this genre, which can be used in the `genre_ids` parameter in other endpoints."
