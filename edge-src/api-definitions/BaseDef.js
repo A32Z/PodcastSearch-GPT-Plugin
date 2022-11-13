@@ -419,4 +419,25 @@ export default class BaseDef {
   }
 
   //
-  // In
+  // Internal utility functions
+  //
+  _makeOpenApiPathSpec(params) {
+    return ({
+      get: {
+        operationId: params.operationId,
+        description: params.description,
+        parameters: [...params.parameters],
+        responses: {
+          '200': {
+            description: params.response200.description,
+            content: {
+              'application/json': {
+                schema: params.response200.schema,
+              },
+            },
+          },
+        },
+      },
+    })
+  }
+}
