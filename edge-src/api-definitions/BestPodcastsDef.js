@@ -36,4 +36,23 @@ export default class BestPodcastsDef  extends BaseDef {
         OPENAPI_PARAMETERS.language,
       ],
       response200: {
-        description: 'Retur
+        description: 'Returns a list of podcasts in json format',
+        schema: {
+          type: 'array',
+          items: {
+            ...OPENAPI_RESPONSE_TMPL.PODCAST_SIMPLE,
+          },
+        },
+      },
+    }
+    return {
+      '/best_podcasts': this._makeOpenApiPathSpec(params),
+    }
+  }
+
+  extraParams() {
+    return {
+      sort: 'listen_score',
+    }
+  }
+}
