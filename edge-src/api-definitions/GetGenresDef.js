@@ -16,4 +16,22 @@ export default class GetGenresDef  extends BaseDef {
         'The `id` field can be used in other endpoints as `genre_id` parameter.',
       parameters: [],
       response200: {
-        description: 'Returns a list of podcast genres in json format'
+        description: 'Returns a list of podcast genres in json format',
+        schema: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: OPENAPI_RESPONSE_TMPL.GENRE,
+          },
+        },
+      },
+    }
+    return {
+      '/genres': this._makeOpenApiPathSpec(params),
+    }
+  }
+
+  extraParams() {
+    return {}
+  }
+}
