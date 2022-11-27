@@ -44,3 +44,4 @@ export default class GetEpisodeDef  extends BaseDef {
       '/episodes/{id}': this._makeOpenApiPathSpec(params),
     }
   }
+}
