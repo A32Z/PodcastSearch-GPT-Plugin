@@ -1,6 +1,7 @@
+
 import BaseDef, {OPENAPI_PARAMETERS, OPENAPI_RESPONSE_TMPL} from "./BaseDef";
 
-export default class SearchEpisodesDef  extends BaseDef {
+export default class SearchPodcastsDef  extends BaseDef {
   apiFunctionName() {
     return 'search'
   }
@@ -10,30 +11,27 @@ export default class SearchEpisodesDef  extends BaseDef {
       id: item.id,
       title: item.title_original,
       description: item.description_original,
-      audio: item.audio,
-      audio_length_sec: item.audio_length_sec,
-      pub_date_ms: item.pub_date_ms,
-      image: item.image,
       listennotes_url: item.listennotes_url,
-      podcast: {
-        id: item.podcast.id,
-        title: item.podcast.title_original,
-        publisher: item.podcast.publisher_original,
-        listennotes_url: item.podcast.listennotes_url,
-        image: item.podcast.image,
-        listen_score: item.podcast.listen_score,
-        listen_score_global_rank: item.podcast.listen_score_global_rank,
-      },
+      publisher: item.publisher_original,
+      image: item.image,
+      latest_episode_id: item.latest_episode_id,
+      latest_pub_date_ms: item.latest_pub_date_ms,
+      earliest_pub_date_ms: item.earliest_pub_date_ms,
+      total_episodes: item.total_episodes,
+      audio_length_sec: item.audio_length_sec,
+      update_frequency_hours: item.update_frequency_hours,
+      listen_score: item.listen_score,
+      listen_score_global_rank: item.listen_score_global_rank,
     }))
   }
 
   openApiPathSpec() {
     // const {episodeSpec, podcastSpec} = OPENAPI_PROPERTIES;
     const params = {
-      operationId: 'searchEpisodes',
-      description: 'Search episodes by keyword. ' +
+      operationId: 'searchPodcasts',
+      description: 'Search podcasts by keyword. ' +
         'A keyword can be a topic, a person name, a place, or a brand. ' +
-        'Useful to find podcast interviews of a person, or episodes discussing a specific topic / person.',
+        'Useful to discover podcasts by hosts, topics, publishers, etc. Also useful to find podcasts by name.',
       parameters: [
         OPENAPI_PARAMETERS.q,
         OPENAPI_PARAMETERS.sort_by_date,
@@ -45,25 +43,29 @@ export default class SearchEpisodesDef  extends BaseDef {
         OPENAPI_PARAMETERS.language,
         OPENAPI_PARAMETERS.region,
         OPENAPI_PARAMETERS.page_size,
+        OPENAPI_PARAMETERS.episode_count_min,
+        OPENAPI_PARAMETERS.episode_count_max,
+        OPENAPI_PARAMETERS.update_freq_min,
+        OPENAPI_PARAMETERS.update_freq_max,
       ],
       response200: {
-        description: 'Returns a list of podcast episodes in json format',
+        description: 'Returns a list of podcasts in json format',
         schema: {
           type: 'array',
           items: {
-            ...OPENAPI_RESPONSE_TMPL.EPISODE_SIMPLE,
+            ...OPENAPI_RESPONSE_TMPL.PODCAST_SIMPLE,
           },
         },
       },
     }
     return {
-      '/search_episodes': this._makeOpenApiPathSpec(params),
+      '/search_podcasts': this._makeOpenApiPathSpec(params),
     }
   }
 
   extraParams() {
     return {
-      type: 'episode',
+      type: 'podcast',
     }
   }
 }
