@@ -71,3 +71,10 @@ export async function onRequestGet(context) {
   const {env, data} = context
 
   const params = {
+    chatgptVerificationToken: env.CHATGPT_VERIFICATION_TOKEN,
+    baseUrl: data.baseUrl,
+  }
+
+  const responseBuilder = new ResponseBuilder(context)
+  return responseBuilder.getJsonResponse(pluginSpec(params))
+}
