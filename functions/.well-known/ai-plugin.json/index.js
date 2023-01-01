@@ -47,4 +47,27 @@ const pluginSpec = (params) => ({
     "type": "service_http",
     "authorization_type": "bearer",
     "verification_tokens": {
-      "openai": params.chatgptVerificationToke
+      "openai": params.chatgptVerificationToken,
+    }
+  },
+
+  "api": {
+    "type": "openapi",
+    "url": `${params.baseUrl}/chatgpt-plugin/openapi.json`
+  },
+
+  // URL used to fetch the logo. Suggested size: 512 x 512. Transparent backgrounds are supported.
+  // Must be an image, no GIFs are allowed.
+  "logo_url": `${params.baseUrl}/assets/android-chrome-512x512.png`,
+
+  // Email contact for safety/moderation, support, and deactivation
+  "contact_email": "hello@listennotes.com",
+
+  // Redirect URL for users to view plugin information
+  "legal_info_url": `${params.baseUrl}/chatgpt-plugin/legal.txt`
+})
+
+export async function onRequestGet(context) {
+  const {env, data} = context
+
+  const params = {
