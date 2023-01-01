@@ -33,4 +33,18 @@ const pluginSpec = (params) => ({
   // Human-readable name, such as the full company name. 20 character max.
   "name_for_human": "Listen Notes",
 
-  // Name the model will u
+  // Name the model will use to target the plugin (no spaces allowed, only letters and numbers). 50 character max.
+  "name_for_model": "PodcastDatabase",
+
+  // Human-readable description of the plugin. 100 character max.
+  "description_for_human": descriptionForHuman,
+
+  // Description better tailored to the model, such as token context length considerations or keyword usage for
+  // improved plugin prompting. 8,000 character max.
+  "description_for_model": descriptionForModel,
+
+  "auth": {
+    "type": "service_http",
+    "authorization_type": "bearer",
+    "verification_tokens": {
+      "openai": params.chatgptVerificationToke
