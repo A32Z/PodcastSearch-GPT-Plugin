@@ -42,3 +42,9 @@ export async function onRequestGet(context) {
       ...new GetGenresDef().openApiPathSpec(),
       ...new GetLanguagesDef().openApiPathSpec(),
       ...new GetRegionsDef().openApiPathSpec(),
+      ...new GetEpisodeDef().openApiPathSpec(),
+      ...new GetPodcastDef().openApiPathSpec(),
+    },
+  }
+  return responseBuilder.getJsonResponse(openapiSpec(params))
+}
