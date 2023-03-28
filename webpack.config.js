@@ -42,3 +42,37 @@ module.exports = {
 
     new ESLintPlugin({
       extensions: ['jsx', 'js'],
+      exclude: [
+        'node_modules',
+      ],
+    }),
+
+    new BundleTracker({filename: './functions/webpack-stats.json'}),
+
+    // Delete stale assets before each build
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        '*.js',
+        '*.css',
+        '*.png',
+        '*.txt',
+      ],
+      verbose: true,
+      dry: false,
+    }),
+  ],
+
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'swc-loader',
+            options: {
+              sync: true,
+            },
+          },
+        ],
+      }
