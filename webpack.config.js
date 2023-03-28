@@ -75,4 +75,24 @@ module.exports = {
             },
           },
         ],
-      }
+      },
+    ],
+  },
+
+  devServer: {
+    static: [
+      {
+        directory: path.join(__dirname, './public/'),
+      },
+    ],
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+    compress: true,
+    port: devPort,
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
+  mode: prod ? 'production' : 'development',
+};
