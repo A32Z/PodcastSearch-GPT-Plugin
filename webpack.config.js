@@ -15,4 +15,30 @@ if (prod) {
 } else {
   plugins.push(new WebpackShellPluginNext({
     onBuildStart: {
-      // XXX: w
+      // XXX: when edge-src/ has syntax error, webpack dev server will crash; after we restart, previous
+      // node processes may still be alive, which would take up the same PORT number and prevent dev server
+      // to run again. We have to kill all node process
+      scripts: ['pkill node'],
+      blocking: true,
+      parallel: false
+    },
+  }));
+}
+
+const entry = {
+};
+
+module.exports = {
+  entry,
+
+  output: {
+    path: path.resolve(__dirname, `./public/${buildDir}`),
+    filename: '[name]-[fullhash].js',
+    publicPath,
+  },
+
+  plugins: [
+    ...plugins,
+
+    new ESLintPlugin({
+      extensions: ['jsx', 'js'],
